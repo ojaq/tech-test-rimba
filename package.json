@@ -10,11 +10,17 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@mdi/font": "^7.4.47",
+    "bcryptjs": "^2.4.3",
     "bootstrap": "^5.3.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
     "express": "^4.21.1",
+    "jsonwebtoken": "^9.0.2",
     "mysql2": "^3.11.3",
     "nuxt": "^3.13.2",
     "sequelize": "^6.37.5",
+    "vite-plugin-vuetify": "^2.0.4",
     "vue": "latest",
     "vue-router": "latest",
     "vuetify": "^3.7.3"
