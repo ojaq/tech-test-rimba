@@ -1,75 +1,121 @@
-# Nuxt Minimal Starter
+Here's a README template for your full-stack project. It outlines the setup for local development and deployment.
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+---
 
-## Setup
+# Full-Stack Application (Vue.js + Node.js)
 
-Make sure to install dependencies:
+This is a full-stack application built with a Vue.js frontend and a Node.js backend using Express, Sequelize, and MySQL. The application manages product transactions with a summary view for users.
+
+## Table of Contents
+
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Installation](#installation)
+- [Environment Variables](#environment-variables)
+- [Usage](#usage)
+- [Deployment](#deployment)
+
+## Features
+
+- **Product Management**: Add, update, and remove products.
+- **Transaction System**: Manage transactions with automatic stock deductions.
+- **Summary View**: View transaction summaries, including customer details, products, quantities, and totals.
+
+## Tech Stack
+
+- **Frontend**: Vue.js, Vuetify, TailwindCSS
+- **Backend**: Node.js, Express, Sequelize, MySQL
+- **Deployment**: Vercel
+
+## Installation
+
+### Prerequisites
+
+- Node.js and npm installed
+- MySQL server installed and running
+
+### 1. Clone the Repository
 
 ```bash
-# npm
+git clone https://github.com/your-username/your-repo-name.git
+cd your-repo-name
+```
+
+### 2. Install Dependencies
+
+For both frontend and backend:
+
+```bash
+# Backend dependencies
+cd backend
 npm install
 
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
+# Frontend dependencies
+cd ../frontend
+npm install
 ```
 
-## Development Server
+## Environment Variables
 
-Start the development server on `http://localhost:3000`:
+Create a `.env` file in the `backend` directory and set the following:
 
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
+```plaintext
+JWT_SECRET=your_jwt_secret
+DATABASE_URL=mysql://user:password@localhost:3306/your_database
 ```
 
-## Production
+In the frontend, add necessary environment variables by prefixing with `VUE_APP_` if using `.env` (e.g., `VUE_APP_API_URL` for the API base URL).
 
-Build the application for production:
+## Usage
 
-```bash
-# npm
-npm run build
+### Running Locally
 
-# pnpm
-pnpm build
+1. **Start Backend**: In the `backend` directory:
 
-# yarn
-yarn build
+    ```bash
+    node index.js
+    ```
 
-# bun
-bun run build
-```
+    - The backend will start on `http://localhost:3001`.
 
-Locally preview production build:
+2. **Start Frontend**: In the `frontend` directory:
 
-```bash
-# npm
-npm run preview
+    ```bash
+    npm run dev
+    ```
 
-# pnpm
-pnpm preview
+    - The frontend will be available on `http://localhost:3000`.
 
-# yarn
-yarn preview
+### Testing the Application
 
-# bun
-bun run preview
-```
+- Use the frontend to navigate between products and transactions.
+- Verify transactions update product stock and display summaries.
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+## Deployment
+
+### Vercel Setup
+
+1. **Frontend Deployment**:
+   - Navigate to the `frontend` folder and deploy with:
+
+     ```bash
+     vercel --prod
+     ```
+
+2. **Backend Deployment**:
+   - In the `backend` directory, deploy with:
+
+     ```bash
+     vercel --prod
+     ```
+
+3. **Configure Environment Variables**:
+   - Add environment variables in Vercel under "Settings" > "Environment Variables".
+
+## License
+
+MIT License. See [LICENSE](LICENSE) for more information.
+
+---
+
+Replace placeholders like `your-username` and `your-repo-name` with actual values.
