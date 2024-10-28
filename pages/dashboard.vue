@@ -60,7 +60,7 @@ const fetchTransactionSummary = async () => {
   }
 
   try {
-    const response = await fetch('http://localhost:3001/transaction/summary', {
+    const response = await fetch(`http://${import.meta.env.VITE_API_URL}/transaction/summary`, {
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },

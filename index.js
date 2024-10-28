@@ -15,7 +15,7 @@ import config from "./config/config.json" assert { type: "json" };
 dotenv.config();
 
 const app = express();
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 const JWT_SECRET = process.env.JWT_SECRET;
 
 const env = process.env.NODE_ENV || "development";

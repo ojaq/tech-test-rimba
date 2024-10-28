@@ -57,7 +57,7 @@ const fetchProducts = async () => {
     }
 
     try {
-        const response = await fetch('http://localhost:3001/product', {
+        const response = await fetch(`http://${import.meta.env.VITE_API_URL}/product`, {
             headers: {
                 "Authorization": `Bearer ${localStorage.getItem("accessToken")}`,
             },
@@ -75,7 +75,7 @@ const fetchProducts = async () => {
 
 const createProduct = async () => {
     try {
-        const response = await fetch('http://localhost:3001/product', {
+        const response = await fetch(`http://${import.meta.env.VITE_API_URL}/product`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

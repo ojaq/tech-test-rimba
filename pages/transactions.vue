@@ -74,7 +74,7 @@ const fetchTransactions = async () => {
     }
 
     try {
-        const response = await fetch('http://localhost:3001/transaction', {
+        const response = await fetch(`http://${import.meta.env.VITE_API_URL}/transaction`, {
             headers: { "Authorization": `Bearer ${localStorage.getItem("accessToken")}` },
         });
         const result = await response.json();
@@ -90,7 +90,7 @@ const fetchTransactions = async () => {
 
 const createTransaction = async () => {
     try {
-        const response = await fetch('http://localhost:3001/transaction', {
+        const response = await fetch('http://${import.meta.env.VITE_API_URL}/transaction', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -100,7 +100,7 @@ const createTransaction = async () => {
                 customer: transactionCustomer.value,
                 products: [
                     {
-                        productCode: transactionProduct.value, // Ensure this is set correctly
+                        productCode: transactionProduct.value,
                         quantity: transactionQuantity.value
                     }
                 ],
@@ -114,7 +114,7 @@ const createTransaction = async () => {
             throw new Error(newTransaction.message || `HTTP error! status: ${response.status}`);
         }
 
-        transactions.value.push(newTransaction.data); // Make sure to access newTransaction.data
+        transactions.value.push(newTransaction.data);
         resetForm();
         await fetchTransactions();
     } catch (err) {
@@ -136,7 +136,7 @@ const confirmDelete = (id) => {
 
 const deleteTransaction = async (id) => {
     try {
-        const response = await fetch(`http://localhost:3001/transaction/${id}`, {
+        const response = await fetch(`http://${import.meta.env.VITE_API_URL}/transaction/${id}`, {
             method: 'DELETE',
             headers: { "Authorization": `Bearer ${localStorage.getItem("accessToken")}` },
         });
